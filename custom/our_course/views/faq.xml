@@ -1,0 +1,99 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <!--     <record id="our_faq_list_view" model="ir.ui.view">-->
+        <!--            <field name="name">our_faq.faq</field>-->
+        <!--            <field name="model">our_faq.faq</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree>-->
+        <!--                    <field name="name"/>-->
+        <!--&lt;!&ndash;                    <field name="value"/>&ndash;&gt;-->
+        <!--                </tree>-->
+        <!--            </field>-->
+
+        <!--     </record>-->
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="our_faq.action_window">
+              <field name="name">our_faq window</field>
+              <field name="res_model">our_faq.our_faq</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="our_faq.action_server">
+              <field name="name">our_faq server</field>
+              <field name="model_id" ref="model_our_service_our_service"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="our_faq" id="our_faq.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="our_faq.menu_1" parent="our_faq.menu_root"/>
+            <menuitem name="Menu 2" id="our_faq.menu_2" parent="our_faq.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="our_faq.menu_1_list" parent="our_faq.menu_1"
+                      action="our_faq.action_window"/>
+            <menuitem name="Server to list" id="our_faq" parent="our_faq.menu_2"
+                      action="our_faq.action_server"/>
+        -->
+        <!--         record -->
+
+        <record id="our_faq_list_view" model="ir.ui.view">
+            <field name="name">our_course.faq</field>
+            <field name="model">our_course.faq</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="question"/>
+                    <field name="answer"/>
+
+
+                    <!--                    <field name="value"/>-->
+                </tree>
+            </field>
+        </record>
+        <!--        Form-->
+        <record id="our_faq_form_view" model="ir.ui.view">
+            <field name="name">our_course.faq.form</field>
+            <field name="model">our_course.faq</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="question"/>
+                            <field name="answer"/>
+
+                            <field name="status" widget="boolean_toggle"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="our_faq_action" model="ir.actions.act_window">
+            <field name="name">Our Faq</field>
+            <field name="res_model">our_course.faq</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

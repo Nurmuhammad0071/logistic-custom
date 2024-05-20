@@ -1,0 +1,103 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <!--     <record id="our_team_list_view" model="ir.ui.view">-->
+        <!--            <field name="name">our_team.team</field>-->
+        <!--            <field name="model">our_team.team</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree>-->
+        <!--                    <field name="name"/>-->
+        <!--&lt;!&ndash;                    <field name="value"/>&ndash;&gt;-->
+        <!--                </tree>-->
+        <!--            </field>-->
+
+        <!--     </record>-->
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="our_team.action_window">
+              <field name="name">our_team window</field>
+              <field name="res_model">our_team.our_team</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="our_team.action_server">
+              <field name="name">our_team server</field>
+              <field name="model_id" ref="model_our_service_our_service"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="our_team" id="our_team.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="our_team.menu_1" parent="our_team.menu_root"/>
+            <menuitem name="Menu 2" id="our_team.menu_2" parent="our_team.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="our_team.menu_1_list" parent="our_team.menu_1"
+                      action="our_team.action_window"/>
+            <menuitem name="Server to list" id="our_team" parent="our_team.menu_2"
+                      action="our_team.action_server"/>
+        -->
+        <!--         record -->
+
+        <record id="our_team_list_view" model="ir.ui.view">
+            <field name="name">our_course.team</field>
+            <field name="model">our_course.team</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="position"/>
+
+                    <!--                    <field name="value"/>-->
+                </tree>
+            </field>
+        </record>
+        <!--        Form-->
+        <record id="our_team_form_view" model="ir.ui.view">
+            <field name="name">our_course.team.form</field>
+            <field name="model">our_course.team</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="position"/>
+
+                            <field name="description"/>
+                            <field name="status" widget="boolean_toggle"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="our_team_action" model="ir.actions.act_window">
+            <field name="name">Our Team</field>
+            <field name="res_model">our_course.team</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--    <menuitem name="Our Team" id="our_team.menu_root"/>-->
+        <!--        <menuitem name="Courses" id="our_team.menu_2" parent="our_course.menu_root"/>-->
+        <!--        <menuitem name="List" id="our_team.menu_2_list" parent="our_team.menu_2"-->
+        <!--                  action="our_team_action"/>-->
+
+    </data>
+</odoo>

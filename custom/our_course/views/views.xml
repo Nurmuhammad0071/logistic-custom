@@ -1,0 +1,135 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <!--     <record id="our_course_list_view" model="ir.ui.view">-->
+        <!--            <field name="name">our_course.course</field>-->
+        <!--            <field name="model">our_course.course</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree>-->
+        <!--                    <field name="name"/>-->
+        <!--&lt;!&ndash;                    <field name="value"/>&ndash;&gt;-->
+        <!--                </tree>-->
+        <!--            </field>-->
+
+        <!--     </record>-->
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="our_course.action_window">
+              <field name="name">our_course window</field>
+              <field name="res_model">our_course.our_course</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="our_course.action_server">
+              <field name="name">our_course server</field>
+              <field name="model_id" ref="model_our_service_our_service"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="our_course" id="our_course.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="our_course.menu_1" parent="our_course.menu_root"/>
+            <menuitem name="Menu 2" id="our_course.menu_2" parent="our_course.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="our_course.menu_1_list" parent="our_course.menu_1"
+                      action="our_course.action_window"/>
+            <menuitem name="Server to list" id="our_course" parent="our_course.menu_2"
+                      action="our_course.action_server"/>
+        -->
+        <!--         record -->
+
+        <record id="our_course_list_view" model="ir.ui.view">
+            <field name="name">our_course.course</field>
+            <field name="model">our_course.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+
+                    <!--                    <field name="value"/>-->
+                </tree>
+            </field>
+        </record>
+        <!--        Form-->
+        <record id="our_course_form_view" model="ir.ui.view">
+            <field name="name">our_course.course.form</field>
+            <field name="model">our_course.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="image" widget="image"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="teacher"/>
+                            <field name="status" widget="boolean_toggle"/>
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="our_course_action" model="ir.actions.act_window">
+            <field name="name">Our Courses</field>
+            <field name="res_model">our_course.course</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="our_review_action" model="ir.actions.act_window">
+            <field name="name">Our Reviews</field>
+            <field name="res_model">our_course.review</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Our Courses" id="our_course.menu_root"/>
+        <menuitem name="Courses" id="our_course.menu_1" parent="our_course.menu_root"/>
+        <menuitem name="List" id="our_course.menu_1_list" parent="our_course.menu_1"
+                  action="our_course_action"/>
+
+        <menuitem name="Team" id="our_course.menu_2" parent="our_course.menu_root"/>
+        <menuitem name="Team list" id="our_course" parent="our_course.menu_2"
+                  action="our_team_action"/>
+
+<!--    Faq menuitem-->
+        <menuitem name="Faq" id="our_course.menu_3" parent="our_course.menu_root"/>
+        <menuitem name="Faq list" id="our_course_faq" parent="our_course.menu_3"
+                  action="our_faq_action"/>
+
+<!--Review-->
+
+ <menuitem name="Review" id="our_course.menu_4" parent="our_course.menu_root"/>
+        <menuitem name="Review list" id="our_course_review" parent="our_course.menu_4"
+                  action="our_review_action"/>
+
+        <!--        Team-->
+        <!--         <menuitem name="Team" id="our_course1.menu_root"/>-->
+        <!--        <menuitem name="Team" id="our_team.menu_2" parent="our_course1.menu_root"/>-->
+        <!--        <menuitem name="List" id="our_team.menu_2_list" parent="our_team.menu_1"-->
+        <!--                  action="our_team_action"/>-->
+        <!--        Team-->
+
+        <!--        <menuitem name="Team" id="our_team.menu_root"/>-->
+
+    </data>
+</odoo>
